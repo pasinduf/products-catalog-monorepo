@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@repo/ui": "*",
+    "@repo/types": "*",
     "@tanstack/react-query": "^5.96.2",
     "@tanstack/react-query-devtools": "^5.96.2",
     "next": "latest",

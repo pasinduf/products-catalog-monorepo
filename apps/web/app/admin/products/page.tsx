@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { API_URL } from "@/lib/config";
+import { ProductDto } from "@repo/types";
 
 
 export default function ProductsAdmin() {
@@ -16,7 +17,7 @@ export default function ProductsAdmin() {
     const [editingId, setEditingId] = useState<string | null>(null);
 
     // Queries
-    const { data: products = [], isLoading: loadingProducts } = useQuery({
+    const { data: products = [], isLoading: loadingProducts } = useQuery<ProductDto[]>({
         queryKey: ["products"],
         queryFn: async () => {
             const res = await fetch(`${API_URL}/products`);
@@ -145,7 +146,7 @@ export default function ProductsAdmin() {
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product Info</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-right">Actions</th>
+                            <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-right">Actions</th>
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">

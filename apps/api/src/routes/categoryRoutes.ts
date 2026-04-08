@@ -1,13 +1,20 @@
 import { Router, Request, Response } from "express";
 import { initializeDatabase } from "../data-source";
 import { Category } from "../entities/Category.entity";
+import { CategoryDto } from "@repo/types";
 
 const router = Router();
 
 router.get("/", async (req: Request, res: Response) => {
     const ds = await initializeDatabase();
     const categories = await ds.getRepository(Category).find();
-    res.json(categories);
+
+    const response  : CategoryDto[] = categories.map(category => ({
+        id: category.id,
+        name: category.name,
+        description: category.description
+    }));
+    res.json(response);
 });
 
 router.post("/", async (req: Request, res: Response) => {
