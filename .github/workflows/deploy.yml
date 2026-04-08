@@ -46,8 +46,8 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_API }}
 
       - name: Run Database Migrations (API)
-        run: npm run migration:run  #cd apps/api && npm run migration:run
-        working-directory: ./apps/api
+        run:  cd apps/api && npm run migration:run
+        #working-directory: ./apps/api
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
