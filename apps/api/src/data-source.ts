@@ -14,8 +14,9 @@ export const AppDataSource = new DataSource({
 });
 
 export const initializeDatabase = async () => {
-    if (!AppDataSource.isInitialized) {
-        await AppDataSource.initialize();
-    }
-    return AppDataSource;
+  if (!AppDataSource.isInitialized) {
+    await AppDataSource.initialize();
+    console.log("Database connection initialized");
+  }
+  return AppDataSource;
 };

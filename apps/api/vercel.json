@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "buildCommand": "cd ../.. && npx turbo run build --filter=api",
+    "installCommand": "cd ../.. && npm install",
+    "builds": [
+        {
+            "src": "api/index.ts",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "api/index.ts"
+        }
+    ]
+}
