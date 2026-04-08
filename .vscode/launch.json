@@ -1,0 +1,57 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug API",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "node",
+            "runtimeArgs": [
+                "--inspect=9229",
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/apps/api/src/dev-server.ts"
+            ],
+            "cwd": "${workspaceFolder}/apps/api",
+            "envFile": "${workspaceFolder}/apps/api/.env",
+            "env": {
+                "NODE_ENV": "development",
+                "TS_NODE_PROJECT": "${workspaceFolder}/apps/api/tsconfig.json"
+            },
+            "skipFiles": [
+                "<node_internals>/**",
+                "**/node_modules/**"
+            ],
+            "sourceMaps": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Start Web (Next.js)",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "runtimeArgs": [
+                "next",
+                "dev",
+                "--port",
+                "3000"
+            ],
+            "cwd": "${workspaceFolder}/apps/web",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "console": "integratedTerminal"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Debug Full Stack",
+            "configurations": [
+                "Debug API",
+                "Start Web (Next.js)"
+            ]
+        }
+    ]
+}
