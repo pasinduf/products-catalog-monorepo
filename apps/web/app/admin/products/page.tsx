@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { API_URL } from "@/lib/config";
 
-const API_URL = "http://localhost:3001";
 
 export default function ProductsAdmin() {
     const queryClient = useQueryClient();
