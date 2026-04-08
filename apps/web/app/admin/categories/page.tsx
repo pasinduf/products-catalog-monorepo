@@ -136,9 +136,9 @@ export default function CategoriesAdmin() {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {categories.map((category: any) => (
+              {categories.map((category: CategoryDto) => (
                 <tr key={category.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{category.names}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{category.name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {category.description || <span className="italic text-gray-400">None</span>}
                   </td>
