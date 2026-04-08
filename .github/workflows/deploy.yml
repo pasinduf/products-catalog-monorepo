@@ -46,7 +46,7 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_API }}
 
       - name: Run Database Migrations (API)
-        run: cd apps/api && npm run migration:run
+        run: npm run migration:run -- --dataSource=src/data-source.ts #cd apps/api && npm run migration:run
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
