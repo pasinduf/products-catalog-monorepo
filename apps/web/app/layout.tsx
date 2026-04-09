@@ -31,7 +31,7 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex justify-between items-center py-6 border-b border-gray-200 mb-10">
               <Link href="/" className="text-2xl font-bold text-indigo-600 hover:text-indigo-500 transition-colors">
-                Products Catalog
+                Products Catalog 22
               </Link>
               <div className="flex gap-6">
                 <Link href="/" className="font-medium hover:text-indigo-600 transition-colors">Home</Link>
