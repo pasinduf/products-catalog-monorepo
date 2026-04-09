@@ -15,7 +15,7 @@ router.get("/", async (req: Request, res: Response) => {
         slug: product.slug,
         description: product.description,
         price: product.price,       
-        categoryId: product.categoryId,     
+        categoryId: product.categoryId,    
         category: {   
             id: product.category.id,
             name: product.category.name,
